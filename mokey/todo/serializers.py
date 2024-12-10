@@ -28,7 +28,7 @@ class ProductSerializer(serializers.ModelSerializer):
         model = product_data
         fields = ('id', 'product_id','quantity','product_description','quantity','price','product_name')
 
-#Product data
+#Cart data
 class CartSerializer(serializers.ModelSerializer):
 
     # create a meta class

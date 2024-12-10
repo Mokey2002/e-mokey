@@ -113,13 +113,26 @@ def CartView(request):
 
 @api_view(['GET'])
 def ProductbyIdView(request,id):
-    print(id)
+    #print(id)
     
     product = product_data.objects.filter(product_id=id) 
      
     productbyId_serializer = ProductSerializer(product, many=True)
     
     return JsonResponse(productbyId_serializer.data, safe=False)
+    
+    #if request.method == 'GET':
+    #    products = user_cart.objects.all()
+    #    print(request)
+@api_view(['DELETE'])
+def DeleteCartItembyIdView(request,id):
+    print(id)
+    delete_item = user_cart.objects.get(id = id)
+    delete_item.delete()
+    #retrieve other data
+    products = user_cart.objects.all()   
+    cart_serializer = CartSerializer(products, many=True)
+    return JsonResponse(cart_serializer.data, safe=False)
     
     #if request.method == 'GET':
     #    products = user_cart.objects.all()

@@ -16,7 +16,9 @@ urlpatterns = [
          views.CartView, 
          name = 'cart-list'),
         path('product_id/<int:id>/',views.ProductbyIdView,
-         name='product-by-id')
+         name='get-product-by-id'),
+        path('delete_cart_product_id/<int:id>/',views.DeleteCartItembyIdView,
+         name='delete-cart-product-by-id')
 
 
 ] 
